@@ -1,6 +1,10 @@
 # Surveillance Holonomic Robot
 
 <p align="center">
+  <img src="media/images/robot_on_grd.jpg" alt="Holonomic surveillance robot prototype with Mecanum wheels and RPLiDAR" width="720"/>
+</p>
+
+<p align="center">
   <b>Omnidirectional Mecanum platform</b> · dual-controller ROS stack · LiDAR SLAM & surveillance
 </p>
 
@@ -17,17 +21,15 @@ Open-source software and hardware artifacts for a **cost-effective holonomic sur
 > **Publication:** *Design and Development of Surveillance Holonomic Robot* — accepted in the **International Journal of Information Technology (IJIT), Springer**.  
 > Manuscripts and internal research PDFs are **not** published in this repository (see [Confidential materials](#confidential-materials)).
 
+> **Research prototype:** This repository is **lab research / academic prototype code** from the AI & Robotics Lab (Woxsen University), released to accompany the paper. It is **not** production or industry-grade robot software. Expect experimental scripts, hardcoded ports/IPs, and incomplete stubs alongside the working dual-controller bring-up path.
+
 ---
 
 ## Demo
 
-Robot photos and the demo video are kept **local-only** (`media/images/`, `media/videos/` are gitignored).
+[![Holonomic surveillance robot demo](https://img.youtube.com/vi/Kkh1Xvi68JU/hqdefault.jpg)](https://youtu.be/Kkh1Xvi68JU)
 
-When you have a public clip, add a YouTube/Vimeo link here, for example:
-
-```markdown
-[![Demo](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/VIDEO_ID)
-```
+**[▶ Watch on YouTube](https://youtu.be/Kkh1Xvi68JU)** — unlisted demo of the Mecanum + LiDAR surveillance robot.
 
 ---
 
@@ -58,12 +60,38 @@ When you have a public clip, add a YouTube/Vimeo link here, for example:
 
 ---
 
-## Hardware
+## Hardware gallery
 
-Public architecture diagram: [`media/diagrams/system_flowchart.jpg`](media/diagrams/system_flowchart.jpg).  
-Full component list: [`hardware/BOM.md`](hardware/BOM.md).
+### RPLiDAR
 
-Prototype photos and videos stay under local `media/images/` and `media/videos/` (gitignored).
+Used for 360° environment mapping, obstacle detection, and autonomous navigation.
+
+<p align="center">
+  <img src="media/images/RPLiDAR.jpeg" alt="RPLiDAR A1 laser scanner used on the robot" width="420"/>
+</p>
+
+<p align="center"><i>RPLiDAR A1 — primary exteroceptive sensor for SLAM and obstacle awareness</i></p>
+
+### Mecanum wheels (holonomic motion)
+
+45° roller Mecanum wheels enable instantaneous omnidirectional motion (\(V_x\), \(V_y\), \(\omega_z\)) without reorienting the chassis.
+
+<p align="center">
+  <img src="media/images/maccunum_close_up.jpeg" alt="Mecanum wheel front close-up" width="360"/>
+  &nbsp;
+  <img src="media/images/maccunum_close_side.jpeg" alt="Mecanum wheel side close-up showing angled rollers" width="360"/>
+</p>
+
+<p align="center"><i>Close-up views of the Mecanum wheel (hub and angled rollers)</i></p>
+
+<p align="center">
+  <img src="media/images/maccunum_on_robot.jpeg" alt="Mecanum wheels integrated into the robot chassis" width="640"/>
+</p>
+
+<p align="center"><i>Integration of Mecanum wheels into the wooden chassis with Nema 23 steppers</i></p>
+
+Full bill of materials: [`hardware/BOM.md`](hardware/BOM.md).  
+Architecture diagram: [`media/diagrams/system_flowchart.jpg`](media/diagrams/system_flowchart.jpg) ([PDF](media/diagrams/system_flowchart.pdf)).
 
 ---
 
@@ -74,12 +102,12 @@ Surveillance_Robot/
 ├── README.md                 # This file
 ├── LICENSE                   # Project license (MIT)
 ├── CITATION.cff              # Citation metadata for the IJIT paper
-├── .gitignore                # Ignores Doc/, media/images/, media/videos/
+├── .gitignore                # Ignores Doc/ and unpolished local photos
 ├── hardware/
 │   └── BOM.md                # Public bill of materials
 ├── media/
-│   ├── images/               # Local only (gitignored)
-│   ├── videos/               # Local only (gitignored)
+│   ├── images/               # Curated README gallery (+ local-only drafts)
+│   ├── videos/               # Demo clip
 │   └── diagrams/             # Public flowchart
 ├── firmware/
 │   └── arduino/
@@ -169,6 +197,14 @@ roslaunch navbot_description display.launch
 - **Navigation helpers:** goal/marker scripts and multi-button listeners under `navbot_description/src/`  
 - **Maps:** `navbot_description/maps/` (occupancy grids used in demos)
 
+### Canonical vs experimental code
+
+| Prefer these for reproduction | Treat as lab experiments / drafts |
+|-------------------------------|-----------------------------------|
+| `firmware/arduino/navbotrosrun/` | Duplicate `trigger*`, `maker*` / `marker*` variants |
+| `launch/navbot_masterfile_launch.launch` (+ related bring-up launches) | Stubs with empty `pass` callbacks |
+| `urdf/`, `meshes/`, `rviz/`, `maps/`, `config/` | Placeholder MQTT hosts (`mqtt_broker_ip`, local LAN IPs) |
+
 Tune serial ports, MQTT broker IP (`config/mqtt_bridge.yaml`), and map paths for your network before field runs.
 
 ---
@@ -183,7 +219,7 @@ Public substitutes for the paper narrative:
 - Implementation → `navbot_description/`, `firmware/`  
 - Cite the journal paper (below) instead of attaching the PDF  
 
-Local-only (not pushed): `Doc/`, `media/images/`, `media/videos/`
+Local-only (not pushed): `Doc/` and unpolished files under `media/images/` (assembly drafts, etc.)
 
 ---
 
@@ -194,15 +230,15 @@ If you use this platform or software, please cite the IJIT (Springer) paper:
 ```bibtex
 @article{SurveillanceHolonomicRobotIJIT,
   title   = {Design and Development of Surveillance Holonomic Robot},
-  author  = {Pattamatta, Jayesh and others},
+  author  = {Joshi, Shyam and Pattamatta, Jayesh and Baig, Salman},
   journal = {International Journal of Information Technology},
   publisher = {Springer},
-  year    = {2024},
+  year    = {2026},
   note    = {Accepted}
 }
 ```
 
-Update author list and DOI in [`CITATION.cff`](CITATION.cff) when the final bibliographic record is available.
+Authors: **Dr. Shyam Joshi**, **Jayesh Pattamatta**, **Salman Baig**. 
 
 ---
 
@@ -215,4 +251,4 @@ Upstream URDF/tooling remnants inside `navbot_description` may retain their orig
 
 ## Acknowledgments
 
-Built for research on indigenous, low-cost holonomic surveillance platforms combining Mecanum mobility with LiDAR-driven autonomy on ROS.
+We thank **Woxsen University** for enabling this indigenous holonomic surveillance robot to be prototyped and built in the **AI & Robotics Lab**. This work was carried out with the lab’s infrastructure, mentorship, and support for low-cost Mecanum mobility and LiDAR-driven autonomy on ROS.

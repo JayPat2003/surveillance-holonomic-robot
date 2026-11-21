@@ -11,10 +11,14 @@ docs_private/
 ~$*
 
 # =============================================================================
-# Local media (photos/videos kept off GitHub; diagrams stay public)
+# Local / unpolished photos off GitHub; curated README gallery is tracked
 # =============================================================================
-media/images/
-media/videos/
+media/images/*
+!media/images/robot_on_grd.jpg
+!media/images/RPLiDAR.jpeg
+!media/images/maccunum_on_robot.jpeg
+!media/images/maccunum_close_up.jpeg
+!media/images/maccunum_close_side.jpeg
 
 # =============================================================================
 # OS / editor

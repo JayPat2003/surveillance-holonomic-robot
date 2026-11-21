@@ -3,9 +3,12 @@ message: "If you use this software or platform, please cite the accompanying jou
 title: "Design and Development of Surveillance Holonomic Robot"
 type: software
 authors:
+  - family-names: Joshi
+    given-names: "Dr. Shyam"
   - family-names: Pattamatta
     given-names: Jayesh
-    # Add co-authors below before publishing
+  - family-names: Baig
+    given-names: Salman
 repository-code: "https://github.com/JayPat2003/surveillance-holonomic-robot"
 license: MIT
 keywords:
@@ -16,12 +19,17 @@ keywords:
   - LiDAR
   - Jetson Nano
   - Arduino Mega
+  - Woxsen University
 preferred-citation:
   type: article
   title: "Design and Development of Surveillance Holonomic Robot"
   authors:
+    - family-names: Joshi
+      given-names: "Dr. Shyam"
     - family-names: Pattamatta
       given-names: Jayesh
+    - family-names: Baig
+      given-names: Salman
   journal: "International Journal of Information Technology (IJIT)"
   publisher: Springer
   year: 2024

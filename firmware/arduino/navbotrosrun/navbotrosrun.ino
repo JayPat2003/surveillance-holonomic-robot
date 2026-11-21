@@ -1,3 +1,9 @@
+/*
+ * Research prototype firmware — holonomic surveillance robot (Woxsen AI & Robotics Lab).
+ * Subscribes to ROS /cmd_vel via rosserial and drives 4 steppers (AccelStepper).
+ * Simplified differential-style mapping of linear.x / angular.z (not full Mecanum IK).
+ * Not production / safety-certified control software.
+ */
 #include <ros.h>
 #include <std_msgs/Int32.h>
 #include <geometry_msgs/Twist.h>
