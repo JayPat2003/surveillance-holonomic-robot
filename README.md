@@ -1,10 +1,6 @@
 # Surveillance Holonomic Robot
 
 <p align="center">
-  <img src="media/images/robot_hero.jpg" alt="Holonomic surveillance robot prototype with Mecanum wheels and RPLiDAR" width="720"/>
-</p>
-
-<p align="center">
   <b>Omnidirectional Mecanum platform</b> · dual-controller ROS stack · LiDAR SLAM & surveillance
 </p>
 
@@ -25,19 +21,13 @@ Open-source software and hardware artifacts for a **cost-effective holonomic sur
 
 ## Demo
 
-<p align="center">
-  <a href="media/videos/robot_demo.mp4">
-    <img src="media/images/motion_demo_frames.jpeg" alt="Click to open robot demo video (motion frames preview)" width="720"/>
-  </a>
-</p>
+Robot photos and the demo video are kept **local-only** (`media/images/`, `media/videos/` are gitignored).
 
-<p align="center">
-  <b>▶ <a href="media/videos/robot_demo.mp4">Watch the robot demo</a></b>
-  &nbsp;·&nbsp;
-  Preview above uses motion demonstration frames from <code>media/images/motion_demo_frames.jpeg</code>
-</p>
+When you have a public clip, add a YouTube/Vimeo link here, for example:
 
-> **Tip for GitHub visitors:** After you push, optionally upload the same clip to YouTube/Vimeo and replace the link above with an embed-friendly thumbnail (`[![Demo](thumb.jpg)](https://youtu.be/VIDEO_ID)`). GitHub does not autoplay local MP4s in README markdown.
+```markdown
+[![Demo](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/VIDEO_ID)
+```
 
 ---
 
@@ -68,24 +58,12 @@ Open-source software and hardware artifacts for a **cost-effective holonomic sur
 
 ---
 
-## Hardware gallery
+## Hardware
 
-| Role in README / docs | File | What it shows |
-|-----------------------|------|----------------|
-| **Hero / title banner** | [`media/images/robot_hero.jpg`](media/images/robot_hero.jpg) | Clean prototype shot (LiDAR, Mecanum, drivers, e-stop) |
-| **Assembly overview** | [`media/images/robot_assembly_overview.jpeg`](media/images/robot_assembly_overview.jpeg) | Bench build context, compute & wiring layout |
-| **Side / detail view** | [`media/images/robot_assembly_side.jpeg`](media/images/robot_assembly_side.jpeg) | Wheel–motor packaging and tiered chassis |
-| **Demo thumbnail** | [`media/images/motion_demo_frames.jpeg`](media/images/motion_demo_frames.jpeg) | Linked preview for the demo video |
-| **Architecture** | [`media/diagrams/system_flowchart.jpg`](media/diagrams/system_flowchart.jpg) | Dual-sensor / dual-controller pipeline |
-| **Full demo** | [`media/videos/robot_demo.mp4`](media/videos/robot_demo.mp4) | Live motion / field behaviour |
-
-<p align="center">
-  <img src="media/images/robot_assembly_overview.jpeg" alt="Robot assembly overview on lab bench" width="360"/>
-  &nbsp;
-  <img src="media/images/robot_assembly_side.jpeg" alt="Robot side assembly view" width="360"/>
-</p>
-
+Public architecture diagram: [`media/diagrams/system_flowchart.jpg`](media/diagrams/system_flowchart.jpg).  
 Full component list: [`hardware/BOM.md`](hardware/BOM.md).
+
+Prototype photos and videos stay under local `media/images/` and `media/videos/` (gitignored).
 
 ---
 
@@ -96,13 +74,13 @@ Surveillance_Robot/
 ├── README.md                 # This file
 ├── LICENSE                   # Project license (MIT)
 ├── CITATION.cff              # Citation metadata for the IJIT paper
-├── .gitignore                # Ignores Doc/ and local build artifacts
+├── .gitignore                # Ignores Doc/, media/images/, media/videos/
 ├── hardware/
 │   └── BOM.md                # Public bill of materials
-├── media/                    # Public showcase assets (safe to commit)
-│   ├── images/               # Robot photos for README sections
-│   ├── videos/               # Demo clip
-│   └── diagrams/             # Architecture flowchart
+├── media/
+│   ├── images/               # Local only (gitignored)
+│   ├── videos/               # Local only (gitignored)
+│   └── diagrams/             # Public flowchart
 ├── firmware/
 │   └── arduino/
 │       └── navbotrosrun/     # Arduino Mega rosserial + AccelStepper firmware
@@ -202,9 +180,10 @@ The local folder `Doc/` (Springer manuscript, drafts, reference PDFs, editable D
 Public substitutes for the paper narrative:
 
 - Architecture diagram → `media/diagrams/system_flowchart.jpg`  
-- Prototype photos & demo → `media/images/`, `media/videos/`  
 - Implementation → `navbot_description/`, `firmware/`  
-- Cite the journal paper (below) instead of attaching the PDF
+- Cite the journal paper (below) instead of attaching the PDF  
+
+Local-only (not pushed): `Doc/`, `media/images/`, `media/videos/`
 
 ---
 
