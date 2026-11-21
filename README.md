@@ -230,7 +230,7 @@ If you use this platform or software, please cite the IJIT (Springer) paper:
 ```bibtex
 @article{SurveillanceHolonomicRobotIJIT,
   title   = {Design and Development of Surveillance Holonomic Robot},
-  author  = {Joshi, Shyam and Pattamatta, Jayesh and Baig, Salman},
+  author  = {Dr.Shyam Joshi, Jayesh Pattamatta and Salman Baig},
   journal = {International Journal of Information Technology},
   publisher = {Springer},
   year    = {2026},
