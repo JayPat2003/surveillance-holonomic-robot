@@ -1,0 +1,6 @@
+<launch>
+  <env name="PYTHONPATH" value="/home/robolab/ros_venv/lib/python3.6/site-packages"/>
+  <node pkg="mqtt_bridge" type="mqtt_bridge_node.py" name="mqtt_bridge" output="screen">
+    <param name="config" value="$(find navbot_description)/config/mqtt_bridge.yaml"/>
+  </node>
+</launch>

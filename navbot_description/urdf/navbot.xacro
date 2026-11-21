@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<robot name="navbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find navbot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find navbot_description)/urdf/navbot.trans" />
+<xacro:include filename="$(find navbot_description)/urdf/navbot.gazebo" />
+<xacro:include filename="$(find navbot_description)/urdf/control.xacro" />
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.17930457526983523 0.18512551012989464 0.1226317506033005" rpy="0 0 0"/>
+    <mass value="1.8214603515922523"/>
+    <inertia ixx="0.019939" iyy="0.028718" izz="0.026595" ixy="-2.1e-05" iyz="-0.000433" ixz="-0.000433"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_right_wheel_1">
+  <inertial>
+    <origin xyz="-3.5066755563195606e-07 -0.027760016426516397 3.298143450708446e-07" rpy="0 0 0"/>
+    <mass value="0.9229670824164466"/>
+    <inertia ixx="0.001585" iyy="0.002701" izz="0.001585" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.076984 -0.090174 -0.073516" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/front_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.076984 -0.090174 -0.073516" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/front_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_left_wheel_1">
+  <inertial>
+    <origin xyz="-3.5066755757484636e-07 0.027759980610580326 3.2981434630596773e-07" rpy="0 0 0"/>
+    <mass value="0.9229670824160392"/>
+    <inertia ixx="0.001585" iyy="0.002701" izz="0.001585" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.076984 -0.275254 -0.073516" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/front_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.076984 -0.275254 -0.073516" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/front_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear_right_wheel_1">
+  <inertial>
+    <origin xyz="-3.506675566034012e-07 -0.02776001642651487 3.2981434526513365e-07" rpy="0 0 0"/>
+    <mass value="0.9229670824164511"/>
+    <inertia ixx="0.001585" iyy="0.002701" izz="0.001585" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.276984 -0.090174 -0.073516" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/rear_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.276984 -0.090174 -0.073516" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/rear_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear_left_wheel_1">
+  <inertial>
+    <origin xyz="-3.5066755837975805e-07 0.027759980610581825 3.2981434629208994e-07" rpy="0 0 0"/>
+    <mass value="0.9229670824160415"/>
+    <inertia ixx="0.001585" iyy="0.002701" izz="0.001585" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.276984 -0.275254 -0.073516" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/rear_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.276984 -0.275254 -0.073516" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/rear_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rplidar_1">
+  <inertial>
+    <origin xyz="-3.491861051418965e-07 -1.6426086352216984e-08 0.020000333263557213" rpy="0 0 0"/>
+    <mass value="0.26660208709634947"/>
+    <inertia ixx="0.000122" iyy="0.000122" izz="0.000173" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.184444 -0.190174 -0.294466" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/rplidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.184444 -0.190174 -0.294466" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://navbot_description/meshes/rplidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="frontwheel_right_joint" type="continuous">
+  <origin xyz="0.076984 0.035 0.073516" rpy="135.1 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_right_wheel_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="frontwheel_left_joint" type="continuous">
+  <origin xyz="0.076984 0.275254 0.073516" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_left_wheel_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rearwheel_right_joint" type="continuous">
+  <origin xyz="0.276984 0.035 0.073516" rpy="135.1 0 0"/>
+  <parent link="base_link"/>
+  <child link="rear_right_wheel_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="rearwheel_left_joint" type="continuous">
+  <origin xyz="0.276984 0.275254 0.073516" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rear_left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.184444 0.190174 0.294466" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rplidar_1"/>
+</joint>
+
+
+
+  
+</robot>

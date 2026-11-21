@@ -1,0 +1,8 @@
+<launch>
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+
+  <node name="object_avoidance" pkg="navbot_description" type="object_avoidance.py" output="screen" />
+
+  <!-- Optional: Uncomment if you want to use teleop -->
+  <!-- <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" args="cmd_vel:=/cmd_vel" /> -->
+</launch>

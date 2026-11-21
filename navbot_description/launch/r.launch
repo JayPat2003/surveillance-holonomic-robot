@@ -1,0 +1,16 @@
+<launch>
+    <!-- Launch the Gazebo simulator with the desired world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find navbot_description)/worlds/house.world"/>
+    </include>
+
+    <!-- Load the URDF model of your robot into the parameter server -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find navbot_description)/urdf/navbot.xacro'"/>
+
+    <!-- Spawn your robot model into the Gazebo simulator -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model navbot -param robot_description -x 0 -y 0 -z 0"/>
+
+    <!-- Joint State Publisher Node -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+</launch>

@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software or platform, please cite the accompanying journal paper."
+title: "Design and Development of Surveillance Holonomic Robot"
+type: software
+authors:
+  - family-names: Pattamatta
+    given-names: Jayesh
+    # Add co-authors below before publishing
+repository-code: "https://github.com/JayPat2003/surveillance-holonomic-robot"
+license: MIT
+keywords:
+  - holonomic robot
+  - mecanum wheels
+  - surveillance robotics
+  - ROS
+  - LiDAR
+  - Jetson Nano
+  - Arduino Mega
+preferred-citation:
+  type: article
+  title: "Design and Development of Surveillance Holonomic Robot"
+  authors:
+    - family-names: Pattamatta
+      given-names: Jayesh
+  journal: "International Journal of Information Technology (IJIT)"
+  publisher: Springer
+  year: 2024
+  # doi: "10.xxxx/xxxxx"   # fill when DOI is assigned

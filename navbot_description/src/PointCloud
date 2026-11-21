@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+import rospy
+from sensor_msgs.msg import PointCloud
+from geometry_msgs.msg import Point32
+
+def publish_points():
+    rospy.init_node('points_publisher', anonymous=True)
+    point_pub = rospy.Publisher('/points', PointCloud, queue_size=10)
+    
+    rate = rospy.Rate(1)  # 1 Hz
+    while not rospy.is_shutdown():
+        # Create a PointCloud message
+        point_cloud_msg = PointCloud()
+        point_cloud_msg.header.stamp = rospy.Time.now()
+        point_cloud_msg.header.frame_id = "map"
+
+        # Create the first point and append it to the point cloud
+        point1 = Point32()
+        point1.x = 1.0
+        point1.y = 2.0
+        point1.z = 0.0
+        point_cloud_msg.points.append(point1)
+
+        # Create the second point and append it to the point cloud
+        point2 = Point32()
+        point2.x = 2.0
+        point2.y = 3.0
+        point2.z = 0.0
+        point_cloud_msg.points.append(point2)
+
+        # Create the third point and append it to the point cloud
+        point3 = Point32()
+        point3.x = 3.0
+        point3.y = 4.0
+        point3.z = 0.0
+        point_cloud_msg.points.append(point3)
+
+        rospy.loginfo("Publishing PointCloud: %s", point_cloud_msg)
+
+        # Publish the message
+        point_pub.publish(point_cloud_msg)
+
+        rate.sleep()
+
+if __name__ == '__main__':
+    try:
+        publish_points()
+    except rospy.ROSInterruptException:
+        pass

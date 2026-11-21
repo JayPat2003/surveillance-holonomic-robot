@@ -1,0 +1,4 @@
+<launch>
+    <node name="arduino_node" pkg="navot_description" type="rosrun.ino" />
+    <node name="python_node" pkg="navot_description" type="rosnode.py" />
+</launch>

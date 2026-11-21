@@ -1,0 +1,31 @@
+<launch>
+    <!-- Launch file 1 -->
+    <include file="$(find navbot_description)/launch/navbot.launch" /> 
+    <include file="$(find navbot_description)/launch/camera.launch" />   
+
+    <!-- Launch file 2 -->
+    <include file="$(find navbot_navigation)/launch/amcl.launch" />
+    <include file="$(find rplidar_ros)/launch/rplidar_a1.launch" />
+    <include file="$(find navbot_navigation)/launch/move_base.launch" />
+    <include file="$(find navbot_description)/launch/robot_pose_ekf.launch" />
+   <!-- <node pkg="navbot_description" type="object_avoidance.py" name="object_avoidance" output="screen" /> -->
+
+   <!-- <include file="$(find navbot_description)/launch/rplidarnode.launch" /> -->
+
+
+    <!-- IMU nodes -->
+    <node pkg="mpu_6050_driver" type="imu_node.py" name="imu_node" output="screen" />
+    <node pkg="mpu_6050_driver" type="tf_broadcaster_imu.py" name="tf_node" output="screen" />
+    
+    <!-- Serial node -->
+    <node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
+        <param name="port" value="/dev/ttyUSB1"/>
+    </node>
+
+    <!-- RViz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find navbot_description)/rviz/navbot.rviz" output="screen"/>
+    <node pkg="navbot_description" type="marker.py" name="marker_node" output="screen" />
+
+
+    <!-- Add more launch files as needed -->
+</launch>

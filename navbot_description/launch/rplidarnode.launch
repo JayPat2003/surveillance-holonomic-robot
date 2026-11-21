@@ -1,0 +1,14 @@
+<launch>
+  <!-- RPLidar Configuration -->
+  <arg name="serial_port" default="/dev/ttyUSB0"/>
+  <arg name="serial_baudrate" default="115200"/>
+  <arg name="frame_id" default="laser_frame"/>
+
+  <node name="rplidar_node" pkg="rplidar_ros" type="rplidarNode" output="screen">
+    <param name="serial_port" value="$(arg serial_port)"/>
+    <param name="serial_baudrate" value="$(arg serial_baudrate)"/>
+    <param name="frame_id" value="$(arg frame_id)"/>
+  </node>
+
+  <!-- Add additional nodes or parameters if needed -->
+</launch>

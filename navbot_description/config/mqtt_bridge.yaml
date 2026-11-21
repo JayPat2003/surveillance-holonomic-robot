@@ -1,0 +1,9 @@
+mqtt:
+  connection:
+    host: "192.168.43.26"
+    port: 1883
+
+bridge:
+  - topic_from_mqtt: "robot/cmd_vel"
+    type: "geometry_msgs/Twist"
+    topic_to_ros: "/cmd_vel"

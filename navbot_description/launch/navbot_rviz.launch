@@ -1,0 +1,31 @@
+<launch>
+  <!-- Launch robot_state_publisher -->
+  <node name="robot_state_publisher_main" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+    <param name="publish_frequency" type="double" value="50.0"/>
+  </node>
+
+  <!-- Load URDF model into parameter server -->
+  <param name="robot_description" command="cat $(find navbot_description)/urdf/navbot.xacro"/>
+
+  <!-- Launch RViz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navbot_description)/rviz/urdf.rviz"/>
+  
+  <!-- Joint State Publisher Node -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_secondary">
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" value="/"/>
+  </node>
+
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"/>
+
+  <!-- Gmapping Node -->
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
+    <param name="base_frame" value="base_link"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="map_update_interval" value="5.0"/> <!-- Adjust as needed -->
+  </node>
+
+  <!-- Teleop Node -->
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+
+</launch>

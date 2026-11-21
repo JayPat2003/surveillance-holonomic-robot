@@ -1,0 +1,12 @@
+<!-- rplidar_navbot.launch -->
+<launch>
+    <!-- Launch RPLIDAR node -->
+    <node name="rplidar_node" pkg="rplidar_ros" type="rplidarNode" output="screen">
+        <param name="serial_port" type="string" value="/dev/ttyUSB0"/> <!-- Change this to match your RPLIDAR's serial port -->
+        <param name="serial_baudrate" type="int" value="115200"/>
+    </node>
+
+    <!-- Load URDF model of the robot -->
+    <param name="robot_description" command="$(find xacro)/navbot.xacro $(find navbot_description)/navbot.xacro"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false"/>
+</launch>
